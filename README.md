@@ -1,16 +1,18 @@
-# hugo-mock-landing-page -> Spotify Landing Page
+# hugo-mock-landing-page-autodeployed -> Spotify Landing Page
 Melanie Chen (chenmel 21042266)
 
-I reworked the example landing page to be a landing page for Spotify.
+I automated the deployment of a Hugo Website (hugo-mock-landing-page)
 
-The 6 features I chose were:
-- Playlist Creation and Customization
-- Subscription Management
-- Personalized Content and Recommendations
-- Search and Discovery
-- Social Interaction and Sharing
-- User History and Customization
+I imported my hugo-mock-landing-page repository as hugo-mock-landing-page-autodeployed and then adjusted the baseURL in the config.toml file. Then I reconfigured the repository settings and added a GitHub Actions Workflow to automate the deployment.
 
-I made the general theme colors more of a green vibe to tie in with the Spotify logo's colors. I altered the "Get Started" button colors to follow the green theme. I redirected the "Get Started" button to go to Spotify's official website. I also updated the "Contact" page info to encourage users to email me. I lastly changed all icons to be the Spotify logo or a music related icon. For the feature icons, I created them using Midjourney.
+The added GitHub Actions workflow is designed to automatically build and deploy a Hugo-based website to GitHub Pages whenever changes are pushed to the main branch of the repository. It works by performing the following steps:
 
-You can access the published site at: https://melaniechen912.github.io/hugo-mock-landing-page/
+The workflow is triggered by a push event on the main branch.
+It checks out the repository code, including submodules (like Hugo themes) and fetches the entire commit history.
+It sets up the Hugo environment by installing a specific version of Hugo with extended functionality.
+It compiles the static files for the website using the hugo command with draft content included, garbage collection enabled, and HTML/CSS/JS minification.
+Finally, it publishes the compiled static files to the gh-pages branch, which is used by GitHub Pages to serve the website.
+
+Finally, I double checked that the deployment of the website was working properly by editing content/contact.md.
+
+You can access the published site at: https://melaniechen912.github.io/hugo-mock-landing-page-autodeployed/contact/
